@@ -1,0 +1,13 @@
+# Copyright 2022 John
+# See LICENSE file for licensing details.
+
+# For a complete list of supported options, see:
+# https://juju.is/docs/sdk/metadata-reference
+
+name: hpct-control-operator
+display-name: |
+  Control operator
+description: |
+  Provide control operations for cluster.
+summary: |
+  Provide control operations for cluster.

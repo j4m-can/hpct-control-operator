@@ -1,0 +1,139 @@
+# Copyright 2022 Canonical Ltd.
+# See LICENSE file for licensing details.
+#
+# Learn more about actions at: https://juju.is/docs/sdk/actions
+
+add-compute:
+  description: Add a compute node.
+  params:
+    name:
+      description: Compute node name.
+      type: string
+
+add-group:
+  description: Add a group.
+  params:
+    name:
+      description: Group name.
+      type: string
+    gid:
+      description: Group id
+      type: integer
+      default: -1
+
+add-user:
+  description: Add user.
+  params:
+    name:
+      description: User name.
+      type: string
+      required: [name]
+    gecos:
+      description: General information.
+      type: string
+    gid:
+      description: Group id.
+      type: integer
+      default: -1
+    group-name:
+      description: Group name.
+      type: string
+    password:
+      description: Initial password.
+      type: string
+      required: [password]
+    shell:
+      description: Shell.
+      type: string
+      default: /bin/bash
+      enum: [/bin/bash, /bin/csh, /bin/sh, /bin/zsh]
+      required: [shell]
+    uid:
+      description: User id. "-1" to autoselect.
+      type: integer
+      default: -1
+
+control-ldap-server:
+  description: Execute operation on ldap server.
+  params:
+    operation:
+      description: Operation to execute.
+      type: string
+      enum: [start, stop, restart]
+      required: [operation]
+
+control-slurm-server:
+  description: Execute operation on slurm server.
+  params:
+    operation:
+      description: Operation to execute.
+      type: string
+      enum: [start, stop, restart]
+      required: [operation]
+
+remove-compute:
+  description: Remove compute node.
+  params:
+    name:
+      description: Node name.
+      type: string
+      required: [name]
+
+remove-group:
+  description: Remove group.
+  params:
+    name:
+      description: Group name.
+      type: string
+      required: [name]
+
+remove-user:
+  description: Remove user.
+  params:
+    name:
+      description: User name.
+      type: string
+      required: [name]
+
+
+# for ServiceCharm
+service-restart:
+  description: Restart services.
+  params:
+    force:
+      description: Force action.
+      type: boolean
+      default: false
+    sync:
+      description: Sync configuration.
+      type: boolean
+      default: false
+
+service-set-sync:
+  description: Set sync value (debugging).
+  params:
+    key:
+      description: Sync key.
+      type: string
+    value:
+      description: Sync value.
+      type: boolean
+
+service-start:
+  description: Start services.
+
+service-stop:
+  description: Stop services.
+  params:
+    force:
+      description: Force action.
+      type: boolean
+      default: false
+
+service-sync:
+  description: Sync configuration.
+  params:
+    force:
+      description: Force action.
+      type: boolean
+      default: false
